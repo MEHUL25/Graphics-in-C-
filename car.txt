@@ -1,0 +1,70 @@
+#include <graphics.h>
+#include <stdio.h>
+ 
+// Function to draw moving car
+void draw_moving_car(void) {
+ 
+    int i, j = 0, gd = DETECT, gm;
+    initgraph(&gd, &gm, NULL);
+    setcolor(WHITE);
+   
+   
+   
+   
+    setcolor(YELLOW);
+    for(int i=17;i>=0;i--)
+    circle(500,70,i);
+    setcolor(WHITE);
+    line(0,346,680,346);
+    while(1)
+    {
+    for (i = 0; i <= 420; i = i + 10) {
+ 
+        // Set color of car as red
+        setcolor(RED);
+        line(0 + i, 300, 210 + i, 300);
+        line(50 + i, 300, 75 + i, 270);
+        line(75 + i, 270, 150 + i, 270);
+        line(150 + i, 270, 165 + i, 300);
+        line(0 + i, 300, 0 + i, 330);
+        line(210 + i, 300, 210 + i, 330);
+        circle(65 + i, 330, 15);
+        circle(65 + i, 330, 2);
+        circle(145 + i, 330, 15);
+        circle(145 + i, 330, 2);
+        line(0 + i, 330, 50 + i, 330);
+        line(80 + i, 330, 130 + i, 330);
+        line(210 + i, 330, 160 + i, 330);
+ 
+        delay(100);
+ 
+        // To erase previous drawn car, draw
+        // the whole car at same possition
+        // but color using black
+        setcolor(BLACK);
+        line(0 + i, 300, 210 + i, 300);
+        line(50 + i, 300, 75 + i, 270);
+        line(75 + i, 270, 150 + i, 270);
+        line(150 + i, 270, 165 + i, 300);
+        line(0 + i, 300, 0 + i, 330);
+        line(210 + i, 300, 210 + i, 330);
+        circle(65 + i, 330, 15);
+        circle(65 + i, 330, 2);
+        circle(145 + i, 330, 15);
+        circle(145 + i, 330, 2);
+        line(0 + i, 330, 50 + i, 330);
+        line(80 + i, 330, 130 + i, 330);
+        line(210 + i, 330, 160 + i, 330);
+    }
+  }
+    getch();
+ 
+    closegraph();
+}
+ 
+int main()
+{
+    draw_moving_car();
+ 
+    return 0;
+}
